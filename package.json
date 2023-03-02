@@ -1,0 +1,41 @@
+{
+  "name": "golangcampnode",
+  "version": "1.0.0",
+  "description": "A playlist module for GoLang camp 2023",
+  "main": "playlist.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "protoc": {
+    "options": [
+      "--proto_path=proto"
+    ]
+  },
+  "jest": {
+    "fakeTimers": {
+      "enableGlobally": true
+    },
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)",
+      "node_modules/(?!variables/.*)"
+    ]
+  },
+  "keywords": [],
+  "author": "Ivan Manernyi",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.11",
+    "@grpc/proto-loader": "^0.7.5",
+    "jest": "^29.4.3",
+    "mongodb": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.4.3"
+  }
+}

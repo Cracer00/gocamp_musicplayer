@@ -1,0 +1,107 @@
+// Описываем типы данных и прочее.
+
+syntax = "proto3";
+
+message Empty {}
+
+message User {
+  string name = 1;
+}
+
+service UserService {
+  rpc GetUser (Empty) returns (User) {}
+}
+
+service PlaylistService {
+  rpc AddSong(AddSongRequest) returns (AddSongResponse) {}
+  rpc GetPlaylist(GetPlaylistRequest) returns (GetPlaylistResponse) {}
+  rpc GetSong(GetSongRequest) returns (GetSongResponse) {}
+  rpc PlaySong(PlaySongRequest) returns (PlaySongResponse) {}
+  rpc Pause(PauseRequest) returns (PauseResponse) {}
+  rpc PlayNext(PlayNextRequest) returns (PlayNextResponse) {}
+  rpc PlayPrevious(PlayPreviousRequest) returns (PlayPreviousResponse) {}
+  rpc DeleteSong(DeleteSongRequest) returns (DeleteSongResponse) {}
+  rpc UpdateSong(UpdateSongRequest) returns (UpdateSongResponse) {}
+}
+
+message AddSongRequest {
+  string song_name = 1;
+  int32 duration_mseconds = 3;
+}
+
+message AddSongResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message UpdateSongRequest {
+  int32 song_position = 1;
+  string song_name = 2;
+  int32 duration_mseconds = 3;
+}
+
+message UpdateSongResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message GetPlaylistRequest {
+
+}
+
+message Song {
+  string song_name = 1;
+  int32 duration_mseconds = 3;
+}
+
+message GetPlaylistResponse {
+  repeated string song_list = 1;
+  int32 total_songs = 2;
+}
+
+message GetSongRequest {
+
+}
+
+message GetSongResponse {
+  Song song = 1;
+}
+
+message PlaySongRequest {
+  int32 song_position = 1;
+}
+
+message PlaySongResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message PauseRequest {}
+
+message PauseResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message PlayNextRequest {}
+
+message PlayNextResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message PlayPreviousRequest {}
+
+message PlayPreviousResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message DeleteSongRequest {
+  int32 song_position = 1;
+}
+
+message DeleteSongResponse {
+  bool success = 1;
+  string message = 2;
+}
